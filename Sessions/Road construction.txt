@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> parent, sz;
+int components, maxSize;
+
+int find(int x) {
+    if (parent[x] != x)
+        parent[x] = find(parent[x]); 
+    return parent[x];
+}
+
+void unite(int a, int b) {
+    int rootA = find(a);
+    int rootB = find(b);
+
+    if (rootA != rootB) {
+        if (sz[rootA] < sz[rootB])
+            swap(rootA, rootB);
+
+        parent[rootB] = rootA;
+        sz[rootA] += sz[rootB];
+
+        components--;
+        maxSize = max(maxSize, sz[rootA]);
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n, m;
+    cin >> n >> m;
+
+    parent.resize(n + 1);
+    sz.resize(n + 1);
+
+    for (int i = 1; i <= n; i++) {
+        parent[i] = i;
+        sz[i] = 1;
+    }
+
+    components = n;
+    maxSize = 1;
+
+    while (m--) {
+        int a, b;
+        cin >> a >> b;
+
+        unite(a, b);
+
+        cout << components << " " << maxSize << "\n";
+    }
+
+    return 0;
+}

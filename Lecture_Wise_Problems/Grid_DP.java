@@ -1,4 +1,3 @@
-//Grid DP code
 import java.util.*;
 public class Grid_DP {
     public static void main(String[] args) {

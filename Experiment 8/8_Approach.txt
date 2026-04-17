@@ -1,0 +1,9 @@
+1) Create dp array of size n+1, where dp[i] stores max sum from index i
+2) Set dp[n] = 0 as base case
+3) Iterate i from n-1 to 0
+4) Initialize currMax = 0 for each i
+5)For len = 1 to k while i + len <= n
+6) Update currMax = Math.max(currMax, arr[i + len - 1])
+7) Compute value currMax * len + dp[i + len]
+8) Update dp[i] = Math.max(dp[i], computed value)
+9) Return dp[0]

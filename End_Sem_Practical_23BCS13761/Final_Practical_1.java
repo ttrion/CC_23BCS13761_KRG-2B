@@ -1,6 +1,3 @@
-//subset generation using bitmasking, take input from user and print all the subsets of the given array, 
-// there is no need to print in any particular order, the output should be in the form of list of lists, 
-// for example if the input is [1,2,3] then the output should be [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
 import java.util.*;
 public class Final_Practical_1 {
     public static void main(String[] args) {
